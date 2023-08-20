@@ -1,0 +1,45 @@
+@use 'style';
+
+@mixin display-items($direction : row , $justify : center , $align : center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+/*NAvigation*/
+.header_nav{
+    width: 100%;
+    height: fit-content;
+    @include display-items(row, center, center);
+    background-color: style.$wide-color;
+    overflow-x: hidden;
+  .header_first_ul{
+    width: 100%;
+    @include display-items(row, space-around, center);
+        .header_li{
+            width: fit-content;
+            height: fit-content;
+            list-style: none;
+            font-size: 1.2em;
+            letter-spacing: -1px;
+            cursor: pointer;
+            a{
+                text-decoration: none;
+                color: style.$black;
+                cursor: pointer;
+            }
+            span{
+              background-color: style.$main-color;
+              color: style.$black;
+              padding: 5px;
+              border-radius: 10px;
+              border: 4px double style.$point-color;
+              font-weight: 600;
+            }
+        }
+        .header_li:last-child:hover{
+          border-bottom: 2px solid style.$point-color;
+        }
+    }
+}

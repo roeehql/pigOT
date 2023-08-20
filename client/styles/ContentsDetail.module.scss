@@ -1,0 +1,33 @@
+@use 'style';
+
+@mixin display-items($direction : row , $justify : center , $align : center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin container-design(){
+  border-radius: 10px;
+  background-color: style.$white;
+  box-shadow:inset 0px 0px 1px #bdbdbd, 2px 2px 2px #bdbdbd;
+  padding: 20px;
+}
+
+.contents_container{
+    @include display-items(row, center, center);
+    .contentslist_container{
+        @include display-items(column, space-around, center);
+        @include container-design();
+        width: 700px;
+        height: 550px;
+        margin-top: 16px;
+        margin-left: 1%; 
+        transition: 0.3s;
+        a{
+          text-decoration: none;
+          font-size: 1.4em;
+          color: #000;
+        }
+    }
+}  

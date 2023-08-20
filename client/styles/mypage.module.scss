@@ -1,0 +1,42 @@
+ @use 'style';
+ 
+ @mixin display-items($direction : row , $justify : center , $align : center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+@mixin container-design(){
+  border-radius: 10px;
+  background-color: style.$white;
+  box-shadow:inset 0px 0px 1px #bdbdbd, 2px 2px 2px #bdbdbd;
+  padding: 20px;
+}
+
+.mypage_container{
+  width: 100%;
+  height: 100%;
+  @include display-items(column, center , center);
+  .mypage_box{
+    width: fit-content;
+    min-width: 350px;
+    @include display-items(column, center , center);
+    @include container-design();
+    .mypage_item{
+      width: 100%;
+      @include display-items(row, space-around , center);
+      padding: 0 16px;
+      border: 1px solid #bdbdbd;
+      border-radius: 10px;
+      .mypage_p{
+        width: 100%;
+        .mypage_span{
+          border-left: 1px solid #424242;
+          padding-left: 12px;
+        }
+      }
+    }
+  }
+}
+
+

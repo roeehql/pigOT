@@ -1,0 +1,76 @@
+@use 'style';
+
+@mixin display-items($direction : row , $justify : center , $align : center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin container-design(){
+  border-radius: 10px;
+  background-color: style.$white;
+  box-shadow:inset 0px 0px 1px #bdbdbd, 2px 2px 2px #bdbdbd;
+  padding: 20px;
+}
+
+@mixin mobile {
+  @media (min-width: #{style.$breakpoint-mobile}) and (max-width: #{style.$breakpoint-tablet - 1px}) {
+    @content;
+  }
+}
+
+
+.contents_container{
+  @include display-items(row, center, center);
+}
+
+.editForm_box{
+  @include display-items(column,center ,center);
+  width: fit-content;
+  margin-top: 16px;
+  transition: 0.3s;
+  .editForm_form{
+    @include display-items(column,center ,center);
+    .preview{
+      @include display-items(row, flex-end, flex-start);
+      margin-left: 22px;
+      position: relative;
+      width:fit-content;
+      height: 100px;
+    button{
+      position: absolute;
+      border: none;
+      background-color: style.$point-color;
+      color: #fff;
+      padding: 5px 9px;
+      margin: 5px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+  }
+    .editForm_div{
+      @include display-items(row, center , flex-start);
+      div{
+        @include display-items(column, center , flex-start);
+      }
+    }
+  }
+}
+
+@include mobile(){
+  .contents_container{
+    @include display-items(column-reverse, center, center);
+    .editForm_box{
+      @include display-items(column-reverse, center, center);
+      height: fit-content;
+      width: 100%;
+      .editForm_form{
+        @include display-items(column,center ,flex-start);
+          .editForm_div{
+            @include display-items(column, center , flex-start);
+          }
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "travel-pig",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "client-build": "cd client && npm install && npm run build && npm run start cd ../",
+    "server-build": "cd server && npm ci && cd ../",
+    "heroku-prebuild": "npm run server-build && npm run client-build",
+    "client-start" : "cd client && npm run build && npm run start && cd ../",
+    "start": "npm run client-start && npm run server",
+    "client": "cd client && npm run dev",
+    "server": "cd server && npm run start",
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tae2u2/TaeiStory.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tae2u2/TaeiStory/issues"
+  },
+  "homepage": "https://github.com/Tae2u2/TaeiStory#readme",
+  "dependencies": {
+    "concurrently": "^7.1.0",
+    "dotenv": "^16.0.1"
+  },
+  "engines": {"node": "19.0.1","npm":"8.19.2"}
+}

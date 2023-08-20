@@ -1,0 +1,1 @@
+export type DataState = "succ" | "result undefined error";
